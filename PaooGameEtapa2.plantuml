@@ -1,0 +1,339 @@
+@startuml
+
+title __PAOOGAMEETAPA1's Class Diagram__\n
+
+  namespace PaooGame {
+    class PaooGame.Game {
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace GameWindow {
+      class PaooGame.GameWindow.GameWindow {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Graphics {
+      class PaooGame.Graphics.Assets {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Graphics {
+      class PaooGame.Graphics.Camera {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Graphics {
+      class PaooGame.Graphics.ImageLoader {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Graphics {
+      class PaooGame.Graphics.SpriteSheet {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Input {
+      class PaooGame.Input.KeyManager {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Breakable {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      abstract class PaooGame.Items.Character {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Decorations {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Hero {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Indestructible {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Inventory {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      abstract class PaooGame.Items.Item {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Menu {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.NPC {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Pickable {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      abstract class PaooGame.Items.Terrain {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    class PaooGame.Main {
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Maps {
+      class PaooGame.Maps.Map {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    class PaooGame.RefLinks {
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.AboutState {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.BattleState {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.InventoryState {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.MenuState {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.PlayState {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.Sample {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.SettingsState {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      class PaooGame.States.Singleton {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace States {
+      abstract class PaooGame.States.State {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Tiles {
+      class PaooGame.Tiles.GrassTile {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Tiles {
+      class PaooGame.Tiles.MountainTile {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Tiles {
+      class PaooGame.Tiles.SoilTile {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Tiles {
+      class PaooGame.Tiles.Tile {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Tiles {
+      class PaooGame.Tiles.TreeTile {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Tiles {
+      class PaooGame.Tiles.WaterTile {
+      }
+    }
+  }
+  
+
+  PaooGame.Game .up.|> java.lang.Runnable
+  PaooGame.Game o-- PaooGame.States.State : aboutState
+  PaooGame.Game o-- PaooGame.States.State : battleState
+  PaooGame.Game o-- PaooGame.States.State : inventoryState
+  PaooGame.Game o-- PaooGame.Input.KeyManager : keyManager
+  PaooGame.Game o-- PaooGame.States.State : menuState
+  PaooGame.Game o-- PaooGame.States.State : playState
+  PaooGame.Game o-- PaooGame.RefLinks : refLink
+  PaooGame.Game o-- PaooGame.States.State : settingsState
+  PaooGame.Game o-- PaooGame.Tiles.Tile : tile
+  PaooGame.Game o-- PaooGame.GameWindow.GameWindow : wnd
+  PaooGame.Graphics.Camera o-- PaooGame.RefLinks : reflink
+  PaooGame.Input.KeyManager .up.|> java.awt.event.KeyListener
+  PaooGame.Input.KeyManager o-- PaooGame.RefLinks : reflink
+  PaooGame.Items.Character -up-|> PaooGame.Items.Item
+  PaooGame.Items.Hero -up-|> PaooGame.Items.Character
+  PaooGame.Items.Hero o-- PaooGame.Graphics.Camera : camera
+  PaooGame.Items.Inventory -up-|> PaooGame.Items.Item
+  PaooGame.Items.Item o-- PaooGame.RefLinks : refLink
+  PaooGame.Items.Menu -up-|> PaooGame.Items.Item
+  PaooGame.Items.NPC -up-|> PaooGame.Items.Character
+  PaooGame.Items.Pickable -up-|> PaooGame.Items.Terrain
+  PaooGame.Items.Terrain -up-|> PaooGame.Items.Item
+  PaooGame.Maps.Map o-- PaooGame.RefLinks : refLink
+  PaooGame.RefLinks o-- PaooGame.Game : game
+  PaooGame.RefLinks o-- PaooGame.Maps.Map : map
+  PaooGame.RefLinks o-- PaooGame.Items.NPC : npc
+  PaooGame.States.AboutState -up-|> PaooGame.States.State
+  PaooGame.States.BattleState -up-|> PaooGame.States.State
+  PaooGame.States.BattleState o-- PaooGame.States.Singleton : mySingleton
+  PaooGame.States.BattleState o-- PaooGame.Items.Hero : hero
+  PaooGame.States.BattleState o-- PaooGame.Items.NPC : npc
+  PaooGame.States.InventoryState -up-|> PaooGame.States.State
+  PaooGame.States.MenuState -up-|> PaooGame.States.State
+  PaooGame.States.PlayState -up-|> PaooGame.States.State
+  PaooGame.States.PlayState o-- PaooGame.Maps.Map : map
+  PaooGame.States.SettingsState -up-|> PaooGame.States.State
+  PaooGame.States.State o-- PaooGame.RefLinks : refLink
+  PaooGame.Tiles.GrassTile -up-|> PaooGame.Tiles.Tile
+  PaooGame.Tiles.MountainTile -up-|> PaooGame.Tiles.Tile
+  PaooGame.Tiles.SoilTile -up-|> PaooGame.Tiles.Tile
+  PaooGame.Tiles.TreeTile -up-|> PaooGame.Tiles.Tile
+  PaooGame.Tiles.WaterTile -up-|> PaooGame.Tiles.Tile
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

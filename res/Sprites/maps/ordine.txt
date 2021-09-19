@@ -1,0 +1,9 @@
+town - tot ce tine de case + obiecte DE INTERIOR + castle
+
+forest - se afla si case, dar nu poti vedea ce e in interior decat daca intri
+
+cave - nu case, nu forest, poate doar prison si castle
+
+castle - obiecte DOAR de castel
+
+prison - prison + forest?

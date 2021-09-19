@@ -1,0 +1,266 @@
+@startuml
+
+title __ITEMS's Class Diagram__\n
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Breakable {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      abstract class PaooGame.Items.Character {
+          {static} + DEFAULT_CREATURE_HEIGHT : int
+          {static} + DEFAULT_CREATURE_WIDTH : int
+          {static} + DEFAULT_DAMAGE : int
+          {static} + DEFAULT_LIFE : int
+          {static} + DEFAULT_SPEED : float
+          # attackDamage : int
+          # life : int
+          # speed : float
+          # xMove : float
+          # yMove : float
+          + Character()
+          + GetLife()
+          + GetSpeed()
+          + GetXMove()
+          + GetYMove()
+          + Move()
+          + MoveX()
+          + MoveY()
+          + SetLife()
+          + SetSpeed()
+          + SetXMove()
+          + SetYMove()
+          + getAttackDamage()
+          + getLife()
+          + setLife()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Decorations {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Hero {
+          - image : BufferedImage
+          - letterImages : List<BufferedImage>
+          {static} - myItemsImages : List<BufferedImage>
+          {static} - myItemsString : List<String>
+          {static} - npcs : List<NPC>
+          - score : int
+          - totalAbsconded : int
+          - totalGreeded : int
+          - xSafe : float
+          - ySafe : float
+          + CheckCollision()
+          + Draw()
+          + Draw()
+          + Hero()
+          + Update()
+          + getAbsconded()
+          + getCamera()
+          + getGreeded()
+          {static} + getHeroNpcs()
+          {static} + getMyItemsImages()
+          {static} + getMyItemsString()
+          + getScore()
+          + setAbsconded()
+          + setGreeded()
+          + setScore()
+          - GetInput()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Indestructible {
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Inventory {
+          - downFlag : boolean
+          - enterFlag : boolean
+          - escFlag : boolean
+          - hashtagX : int
+          - hashtagY : int
+          - helpString : String
+          {static} - hero : Hero
+          - image : BufferedImage
+          - letterImages : List<BufferedImage>
+          - myItemsImages : List<BufferedImage>
+          - myItemsString : List<String>
+          - myObjectivesString : List<String>
+          - myStatsString : List<String>
+          - optionsString : List<String>
+          - page : String
+          - releaseDOWNFlag : boolean
+          - releaseENTERFlag : boolean
+          - releaseESCFlag : boolean
+          - releaseUPFlag : boolean
+          {static} - state : boolean
+          - upFlag : boolean
+          + Draw()
+          + Inventory()
+          + Update()
+          + getPage()
+          {static} + getState()
+          + resetInventory()
+          {static} + setState()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      abstract class PaooGame.Items.Item {
+          # attackBounds : Rectangle
+          # bounds : Rectangle
+          # height : int
+          # normalBounds : Rectangle
+          # width : int
+          # x : float
+          # y : float
+          {abstract} + Draw()
+          + GetHeight()
+          + GetWidth()
+          + GetX()
+          + GetY()
+          + Item()
+          + SetAttackMode()
+          + SetHeight()
+          + SetNormalMode()
+          + SetWidth()
+          + SetX()
+          + SetY()
+          {abstract} + Update()
+          {static} + getSymbolIndex()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Menu {
+          - downFlag : boolean
+          - enterFlag : boolean
+          - escFlag : boolean
+          - hashtagX : int
+          - hashtagY : int
+          - helpString : String
+          {static} - hero : Hero
+          - image : BufferedImage
+          - isInMenu : boolean
+          - letterImages : List<BufferedImage>
+          - myItemsImages : List<BufferedImage>
+          - myItemsString : List<String>
+          - myStatsString : List<String>
+          - optionsString : List<String>
+          - releaseDOWNFlag : boolean
+          - releaseENTERFlag : boolean
+          - releaseESCFlag : boolean
+          - releaseUPFlag : boolean
+          {static} - state : boolean
+          - upFlag : boolean
+          + Draw()
+          + Menu()
+          + Update()
+          + getHashtagX()
+          + getHashtagY()
+          {static} + getState()
+          + resetMenu()
+          {static} + setState()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.NPC {
+          ~ DEFAULT_PEACIFYOPTIONS : int
+          - image : BufferedImage
+          - isFriend : boolean
+          - peacifyOptions : int
+          - visited : boolean
+          + Draw()
+          + NPC()
+          + Update()
+          + getFriend()
+          + getNPCImage()
+          + getPeacifyOptions()
+          + getVisited()
+          + setFriend()
+          + setPeacifyOptions()
+          + setVisited()
+          - GetInput()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      class PaooGame.Items.Pickable {
+          - image : BufferedImage
+          + Draw()
+          + Pickable()
+          + Update()
+      }
+    }
+  }
+  
+
+  namespace PaooGame {
+    namespace Items {
+      abstract class PaooGame.Items.Terrain {
+          # image : BufferedImage
+          # xMove : float
+          # yMove : float
+          + Move()
+          + MoveX()
+          + MoveY()
+          + Terrain()
+      }
+    }
+  }
+  
+
+  PaooGame.Items.Character -up-|> PaooGame.Items.Item
+  PaooGame.Items.Hero -up-|> PaooGame.Items.Character
+  PaooGame.Items.Hero o-- PaooGame.Graphics.Camera : camera
+  PaooGame.Items.Inventory -up-|> PaooGame.Items.Item
+  PaooGame.Items.Item o-- PaooGame.RefLinks : refLink
+  PaooGame.Items.Menu -up-|> PaooGame.Items.Item
+  PaooGame.Items.NPC -up-|> PaooGame.Items.Character
+  PaooGame.Items.Pickable -up-|> PaooGame.Items.Terrain
+  PaooGame.Items.Terrain -up-|> PaooGame.Items.Item
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
